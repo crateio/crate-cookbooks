@@ -4,6 +4,7 @@ run_list [
   "recipe[chef-client::cron]",
   "recipe[chef-client::delete_validation]",
   "recipe[motd-tail]",
+  "recipe[openssh]",
   "recipe[sudo]",
   "recipe[user::data_bag]",
   "recipe[zsh]",
@@ -21,6 +22,13 @@ override_attributes({
       :minute => "*/30",
       :hour => "*",
     }
+  },
+  :openssh => {
+    :server => {
+      :password_authentication => "no",
+      :permit_root_login => "no",
+      :pubkey_authentication => "yes",
+    },
   },
   :user => {
     :ssh_keygen => false,
