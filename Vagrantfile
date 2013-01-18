@@ -28,6 +28,8 @@ Vagrant::Config.run do |config|
         }
     }
 
+    chef.data_bags_path = "data_bags"
+
     chef.roles_path = "roles"
     chef.add_role "base"
   end
