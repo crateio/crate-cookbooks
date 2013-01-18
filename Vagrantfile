@@ -23,9 +23,14 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-        :chef_client => {
-            :bin => "/opt/vagrant_ruby/bin/chef-client",
-        }
+      :authorization => {
+        :sudo => {
+          :users => ["vagrant"],
+        },
+      },
+      :chef_client => {
+        :bin => "/opt/vagrant_ruby/bin/chef-client",
+      },
     }
 
     chef.data_bags_path = "data_bags"
