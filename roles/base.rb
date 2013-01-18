@@ -3,6 +3,7 @@ description "Base recipes for all nodes"
 run_list [
   "recipe[chef-client::cron]",
   "recipe[chef-client::delete_validation]",
+  "recipe[git]",
   "recipe[motd-tail]",
   "recipe[openssh]",
   "recipe[sudo]",
