@@ -23,15 +23,12 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :mysql => {
-        :server_root_password => 'rootpass',
-        :server_debian_password => 'debpass',
-        :server_repl_password => 'replpass'
-      }
+        :chef_client => {
+            :bin => "/opt/vagrant_ruby/bin/chef-client",
+        }
     }
 
-    chef.run_list = [
-      "recipe[crate-cookbooks::default]"
-    ]
+    chef.roles_path = "roles"
+    chef.add_role "base"
   end
 end
