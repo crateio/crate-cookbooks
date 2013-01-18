@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'berkshelf/vagrant'
 
 Vagrant::Config.run do |config|
@@ -13,8 +15,7 @@ Vagrant::Config.run do |config|
 
   config.vm.host_name = "crate-cookbooks-berkshelf"
 
-  config.vm.box = "Ubuntu precise 64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "Chef"
 
   config.vm.network :hostonly, "33.33.33.10"
 
@@ -27,9 +28,6 @@ Vagrant::Config.run do |config|
         :sudo => {
           :users => ["vagrant"],
         },
-      },
-      :chef_client => {
-        :bin => "/opt/vagrant_ruby/bin/chef-client",
       },
     }
 
