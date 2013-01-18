@@ -26,6 +26,7 @@ override_attributes({
   },
   :openssh => {
     :server => {
+      :print_motd => "no",
       :password_authentication => "no",
       :permit_root_login => "no",
       :pubkey_authentication => "yes",
