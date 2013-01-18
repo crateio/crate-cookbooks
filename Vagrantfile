@@ -35,5 +35,6 @@ Vagrant::Config.run do |config|
 
     chef.roles_path = "roles"
     chef.add_role "base"
+    chef.add_role "monitoring"
   end
 end

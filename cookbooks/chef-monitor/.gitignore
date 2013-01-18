@@ -1,0 +1,8 @@
+.cache
+.bundle
+.librarian
+.jamie
+Gemfile.lock
+Cheffile.lock
+cookbooks
+tmp
